@@ -11,7 +11,7 @@ import { filter } from 'rxjs';
   templateUrl: './users-page.component.html',
   styleUrl: './users-page.component.scss',
 })
-export class UsersPageComponent implements OnInit {
+export default class UsersPageComponent implements OnInit {
   public users: User[] = [];
   public currentPage: number = 1;
 
