@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
-    path: 'list',
+    path: '',
     loadChildren: () => import('./users/users.route'),
   },
   {
