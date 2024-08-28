@@ -5,8 +5,4 @@ export const routes: Routes = [
     path: '',
     loadChildren: () => import('./users/users.route'),
   },
-  {
-    path: '**',
-    redirectTo: 'list',
-  },
 ];

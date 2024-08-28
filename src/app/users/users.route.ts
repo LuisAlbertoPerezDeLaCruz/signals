@@ -7,16 +7,16 @@ export default [
     path: '',
     children: [
       {
-        path: '',
-        component: UsersPageComponent,
-      },
-      {
         path: 'list',
         component: UsersPageComponent,
       },
       {
         path: 'list-signals',
         component: UsersSignalPageComponent,
+      },
+      {
+        path: '**',
+        redirectTo: 'list',
       },
     ],
   },
