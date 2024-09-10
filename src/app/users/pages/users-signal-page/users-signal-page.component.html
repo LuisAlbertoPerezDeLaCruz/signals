@@ -1,1 +1,47 @@
-<p>users-signal-page works!</p>
+<div class="relative overflow-x-auto m-16">
+  <p class="text-xl">Usuarios <small>- sin señales (Tradicional)</small></p>
+  <p class="text-base">Total Usuarios: {{ users().length }}</p>
+  <table
+    class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
+  >
+    <thead
+      class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+    >
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col" class="px-6 py-3">First</th>
+        <th scope="col" class="px-6 py-3">Last</th>
+        <th scope="col" class="px-6 py-3">Email</th>
+        <th scope="col" class="px-6 py-3">Avatar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let user of users()"
+        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+      >
+        <th scope="row">{{ user.id }}</th>
+        <td class="px-6 py-4">{{ user.first_name }}</td>
+        <td class="px-6 py-4">{{ user.last_name }}</td>
+        <td class="px-6 py-4">{{ user.email }}</td>
+        <td class="px-6 py-4">
+          <img
+            class="w-12 h-12 rounded-full"
+            src="{{ user.avatar }}"
+            alt="Rounded avatar"
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="text-end mt-3">
+    <button
+      (click)="loadPage(currentPage() + 1)"
+      type="button"
+      class="text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 shadow-lg shadow-teal-500/50 dark:shadow-lg dark:shadow-teal-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+    >
+      Cargar más Página - {{ currentPage() }}
+    </button>
+  </div>
+</div>
