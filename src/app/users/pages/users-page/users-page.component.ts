@@ -26,7 +26,7 @@ export default class UsersPageComponent implements OnInit {
       .pipe(filter((users) => users.length > 0))
       .subscribe((users) => {
         this.currentPage = page;
-        this.users = users;
+        this.users = [...this.users, ...users];
       });
   }
 }
