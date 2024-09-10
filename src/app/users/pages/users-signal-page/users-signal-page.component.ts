@@ -4,6 +4,11 @@ import { UsersService } from '../../services/users.service';
 import { filter } from 'rxjs';
 import { User } from '../../interfaces/user';
 import { NgFor } from '@angular/common';
+import {
+  currentPage,
+  labelTotalUsers,
+  users,
+} from '../../../shared/users-signals';
 
 @Component({
   selector: 'app-users-signal-page',
@@ -15,27 +20,27 @@ import { NgFor } from '@angular/common';
 export class UsersSignalPageComponent implements OnInit {
   public usersService = inject(UsersService);
 
-  public users = signal<User[]>([]);
-  public currentPage = signal(1);
+  // public users = signal<User[]>([]);
+  // public currentPage = signal(1);
 
-  public labelTotalUsers = computed(
-    () => `Total de usuarios ${this.users().length}`
-  );
+  // public labelTotalUsers = computed(
+  //   () => `Total de usuarios ${this.users().length}`
+  // );
 
-  // get users() {
-  //   return users;
-  // }
+  get users() {
+    return users;
+  }
 
-  // get currentPage() {
-  //   return currentPage;
-  // }
+  get currentPage() {
+    return currentPage;
+  }
 
-  // get labelTotalUsers() {
-  //   return labelTotalUsers;
-  // }
+  get labelTotalUsers() {
+    return labelTotalUsers;
+  }
 
   ngOnInit(): void {
-    this.loadPage(this.currentPage());
+    this.loadPage(currentPage());
   }
 
   loadPage(page: number) {
